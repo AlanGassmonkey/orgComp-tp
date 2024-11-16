@@ -1,0 +1,85 @@
+$date
+	Mon Nov 04 04:05:00 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module aluDeco_tb $end
+$var wire 3 ! aluControl_tb [2:0] $end
+$var parameter 32 " DURATION $end
+$var reg 2 # aluOp_tb [1:0] $end
+$var reg 7 $ f7_tb [6:0] $end
+$var reg 3 % funct3_tb [2:0] $end
+$var reg 7 & op_tb [6:0] $end
+$scope module UUT $end
+$var wire 2 ' aluOp [1:0] $end
+$var wire 3 ( f3 [2:0] $end
+$var wire 7 ) f7 [6:0] $end
+$var wire 7 * op [6:0] $end
+$var reg 3 + aluControl [2:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1100100 "
+$end
+#0
+$dumpvars
+b0 +
+b0xx *
+b0x )
+bx (
+b0 '
+b0xx &
+bx %
+b0x $
+b0 #
+b0 !
+$end
+#1000
+b1 !
+b1 +
+b1 #
+b1 '
+#2000
+b0 !
+b0 +
+b0 $
+b0 )
+b0 &
+b0 *
+b0 %
+b0 (
+b10 #
+b10 '
+#3000
+b1 !
+b1 +
+b1 $
+b1 )
+b11 &
+b11 *
+#4000
+b101 !
+b101 +
+b0x $
+b0x )
+b0xx &
+b0xx *
+b10 %
+b10 (
+#5000
+b11 !
+b11 +
+b110 %
+b110 (
+#6000
+b10 !
+b10 +
+b111 %
+b111 (
+#107000

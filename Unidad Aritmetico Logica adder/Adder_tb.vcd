@@ -1,0 +1,59 @@
+$date
+	Fri Nov 01 01:55:44 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module Adder_tb $end
+$var wire 32 ! res_tb [31:0] $end
+$var reg 32 " op1_tb [31:0] $end
+$var reg 32 # op2_tb [31:0] $end
+$scope module UUT $end
+$var wire 32 $ op1 [31:0] $end
+$var wire 32 % op2 [31:0] $end
+$var reg 32 & res [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b11001 &
+b1010 %
+b1111 $
+b1010 #
+b1111 "
+b11001 !
+$end
+#1000
+b101 #
+b101 %
+b10100 "
+b10100 $
+#2000
+b101100 !
+b101100 &
+b1011 #
+b1011 %
+b100001 "
+b100001 $
+#3000
+b1011 !
+b1011 &
+b1010 #
+b1010 %
+b1 "
+b1 $
+#4000
+b10000000000 !
+b10000000000 &
+b1111100111 #
+b1111100111 %
+b11001 "
+b11001 $
+#5000

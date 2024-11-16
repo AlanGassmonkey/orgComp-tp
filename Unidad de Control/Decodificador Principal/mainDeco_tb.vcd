@@ -1,0 +1,91 @@
+$date
+	Mon Nov 04 03:44:19 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module mainDeco_tb $end
+$var wire 2 ! resSrc_tb [1:0] $end
+$var wire 1 " regWrite_tb $end
+$var wire 1 # memWrite_tb $end
+$var wire 2 $ inmSrc_tb [1:0] $end
+$var wire 1 % branch_tb $end
+$var wire 1 & ALUSrc_tb $end
+$var wire 2 ' ALUOp_tb [1:0] $end
+$var reg 7 ( op_tb [6:0] $end
+$scope module UUT $end
+$var wire 7 ) op [6:0] $end
+$var reg 2 * ALUOp [1:0] $end
+$var reg 1 & ALUSrc $end
+$var reg 2 + ResultSrc [1:0] $end
+$var reg 1 % branch $end
+$var reg 2 , immSrc [1:0] $end
+$var reg 1 # memWrite $end
+$var reg 1 " regWrite $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 ,
+b1 +
+b0 *
+b11 )
+b11 (
+b0 '
+1&
+0%
+b0 $
+0#
+1"
+b1 !
+$end
+#1000
+b0x !
+b0x +
+1#
+b1 $
+b1 ,
+0"
+b100011 (
+b100011 )
+#2000
+b10 '
+b10 *
+b0 !
+b0 +
+0#
+0&
+bx $
+bx ,
+1"
+b110011 (
+b110011 )
+#3000
+b1 '
+b1 *
+1%
+b0x !
+b0x +
+b10 $
+b10 ,
+0"
+b1100011 (
+b1100011 )
+#4000
+b0 '
+b0 *
+0%
+b0 !
+b0 +
+b0 $
+b0 ,
+b1111111 (
+b1111111 )
+#5000
