@@ -22,7 +22,7 @@ initial begin
     op2_tb = 32'd10;
     #1;
     op1_tb = 32'd20;
-    op2_tb = 32'd5;
+    op2_tb = -32'd5;
     #1;
     op1_tb = 32'd33;
     op2_tb = 32'd11;

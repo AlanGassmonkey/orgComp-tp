@@ -24,7 +24,7 @@ initial begin
     $dumpfile(`DUMPSTR(`VCD_OUTPUT));
     $dumpvars(0, IM_tb);
 
-    for (i = 0; i < 32; i = i + 4) begin
+    for (i = 0; i < 128; i = i + 4) begin                                   //30 de 32 Instrucciones cargadas
         #1        
             addres = i;
     end

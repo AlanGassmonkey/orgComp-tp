@@ -17,7 +17,7 @@ module mainDeco(
             7'b1101111: begin // J-type: Jal (Jump and Link)
                 regWrite = 1;       
                 immSrc = 2'b11;     
-                ALUSrc = 1'bx;         //No utiliza el mux pre alu         
+                ALUSrc = 1'b0;         //No utiliza el mux pre alu         
                 memWrite = 0;       
                 ResultSrc = 10;
                 branch = 0;

@@ -1,7 +1,7 @@
 module SE (
-    input [24:0] inm,               // Entrada de inmediato de 25 bits
-    input [1:0] src,                // Selección de tipo de operación
-    output reg [31:0] inmExt        // Salida extendida de inmediato a 32 bits
+    input [24:0] inm,                                                                           // Entrada de inmediato de 25 bits
+    input [1:0] src,                                                                            // Selección de tipo de operación
+    output reg [31:0] inmExt                                                                    // Salida extendida de inmediato a 32 bits
 );
 
 always @(*) begin

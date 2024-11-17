@@ -21,42 +21,34 @@ module SE_tb();
         // Prueba de extensión tipo I (positivo y negativo)
         inm_tb = 25'b0000000000010000011000001;  // Positivo
         src_tb = 2'b00;                         // Tipo I
-        #5;
+        #1;
         inm_tb = 25'b1111111110101111111111111;  // Negativo
         src_tb = 2'b00;                         // Tipo I
-        #5;
+        #1;
 
         // Prueba de extensión tipo S (positivo y negativo)
         inm_tb = 25'b0000000000000000000000010;  // Positivo
         src_tb = 2'b01;                         // Tipo S
-        #5;
+        #1;
         inm_tb = 25'b1111111111111111111111110;  // Negativo
         src_tb = 2'b01;                         // Tipo S
-        #5;
+        #1;
 
         // Prueba de extensión tipo B (positivo y negativo)
-        inm_tb = 25'b0000000000000000000000100;  // Positivo
-        src_tb = 2'b10;                         // Tipo B
-        #5;
-        inm_tb = 25'b1111111111111111111111100;  // Negativo
-        src_tb = 2'b10;                         // Tipo B
-        #5;
-
-        // Prueba de extensión tipo U (positivo y negativo)
-        inm_tb = 25'b0000000000000000000001000;  // Positivo
-        src_tb = 2'b11;                         // Tipo U
-        #5;
-        inm_tb = 25'b1111111111111111111111000;  // Negativo
-        src_tb = 2'b11;                         // Tipo U
-        #5;
+        inm_tb = 25'b0000000000000000000000100;     // Positivo
+        src_tb = 2'b10;                             // Tipo B
+        #1;
+        inm_tb = 25'b1111111111111111111111100;     // Negativo
+        src_tb = 2'b10;                             // Tipo B
+        #1;
 
         // Prueba de extensión tipo J (positivo y negativo)
-        inm_tb = 25'b0000000000000000100000000;  // Positivo
-        src_tb = 2'b11;                         // Tipo J
-        #5;
-        inm_tb = 25'b1111111111111110100000000;  // Negativo
-        src_tb = 2'b11;                         // Tipo J
-        #5;
+        inm_tb = 25'b0000000000000000100000000;     // Positivo
+        src_tb = 2'b11;                             // Tipo J
+        #1;
+        inm_tb = 25'b1111111111111110100000000;     // Negativo
+        src_tb = 2'b11;                             // Tipo J
+        #1;
 
         $finish;
     end

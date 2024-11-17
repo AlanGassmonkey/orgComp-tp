@@ -13,28 +13,28 @@ module  dataPath(
     input wire PCSrc,                     // Selector mux pre contador de programas
     input wire RegWrite,                  // Habilitación de escritura del Banco de registros
     input wire [1:0] immSrc,              // Selector Extend de inmediato a 32 bits
-    input wire ALUsrc,                    // selector del MUX antes de SRCb de la ALU
+    input wire ALUsrc,                    // Selector del MUX antes de SRCb de la ALU
     input wire [2:0] ALUControl,          // Código de control de la ALU
     input wire MemWrite,                  // Habilitación de escritura de la Memoria de datos
     input wire [1:0] ResultSrc,           // Selector del MUX pos Memoria de datos
     output wire [31:0] instruccion,       // Salida instruccion de la memoria de instrucciones
-    output wire zero
+    output wire zero                      // Señal de zero desde la ALU
 );
 
 //Cables:
-wire [31:0] pcNext;             // Entrada Contador de programas
-wire [31:0] pc;                 // Salida Contador de programas
+wire [31:0] pcNext;                       // Entrada Contador de programas
+wire [31:0] pc;                           // Salida Contador de programas
 
-wire [31:0] wd3;                // Valor de escritura en el Banco de registros
-wire [31:0] rd1, rd2;           // Datos de Salida del Banco de Registros
-wire [31:0] srcB;               // Entradas de 32 bits de la ALU
-wire [31:0] ALUResult;          // Salida de 32 bits de la ALU
-wire [31:0] ReadData;           // Dato para Lectura de la Memoria de datos
-wire [31:0] Result;             // Salida del MUX pos Memoria de datos
-wire [31:0] immExt;             // Salida Extend de inmediato a 32 bits
-wire [31:0] PCTarget;           // Salida del Adder pos Extend
-wire [31:0] PCPlus4;            // Salida del Adder pos Contador de programas
-wire [31:0] Result_mux1;        // Usado para pasar de un dmux 2-1 a 4-1
+wire [31:0] wd3;                          // Valor de escritura en el Banco de registros
+wire [31:0] rd1, rd2;                     // Datos de Salida del Banco de Registros
+wire [31:0] srcB;                         // Entradas de 32 bits de la ALU
+wire [31:0] ALUResult;                    // Salida de 32 bits de la ALU
+wire [31:0] ReadData;                     // Dato para Lectura de la Memoria de datos
+wire [31:0] Result;                       // Salida del MUX pos Memoria de datos
+wire [31:0] immExt;                       // Salida Extend de inmediato a 32 bits
+wire [31:0] PCTarget;                     // Salida del Adder pos Extend
+wire [31:0] PCPlus4;                      // Salida del Adder pos Contador de programas
+wire [31:0] Result_mux1;                  // Usado para pasar de un dmux 2-1 a 4-1
 
 //Contador de programa
 PC contador_programa (
@@ -45,7 +45,7 @@ PC contador_programa (
 
 //Memoria de instrucciones
 IM memoria_instruccion (
-    .addresIM( pc[6:2] ),       
+    .addresIM( pc[6:2] ),                 //Equivalente a dividir por 4 
     .inst(instruccion)
 );
 
@@ -82,7 +82,7 @@ ALU alu (
 //Memoria de Datos
 DM memoria_datos (
     .clk(clk),
-    .addresDM(ALUResult[6:2]),   
+    .addresDM(ALUResult[6:2]),            //Equivalente a dividir por 4 
     .wd(rd2),
     .we(MemWrite),
     .rd(ReadData)
@@ -121,7 +121,7 @@ Adder adder_ext (
 //Adder pos Contador de programas 
 Adder adder_contador_programa (
     .op1(pc),
-    .op2(32'd4),              
+    .op2(32'd4),                          // Valor '4' Constante              
     .res(PCPlus4)
 );
 

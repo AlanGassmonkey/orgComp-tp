@@ -12,17 +12,17 @@ reg clk = 0;
 always #0.5 clk = ~clk;
 
 
-reg PCSrc;
-reg RegWrite;
-reg [1:0] immSrc;
-reg ALUsrc;
-reg [2:0] ALUControl;
-reg MemWrite;
-reg [1:0] ResultSrc;
+reg PCSrc;                              // Selector mux pre contador de programas
+reg RegWrite;                           // Habilitación de escritura del Banco de registros
+reg [1:0] immSrc;                       // Selector Extend de inmediato a 32 bits
+reg ALUsrc;                             // Selector del MUX antes de SRCb de la ALU
+reg [2:0] ALUControl;                   // Código de control de la ALU
+reg MemWrite;                           // Habilitación de escritura de la Memoria de datos
+reg [1:0] ResultSrc;                    // Selector del MUX pos Memoria de datos
 
 // Salidas
-wire [31:0] instruccion;
-wire zero;
+wire [31:0] instruccion;                // Salida instruccion de la memoria de instrucciones (Para el modulo de Control)
+wire zero;                              // Señal de zero desde la ALU
 
 // Instancia del módulo dataPath
 dataPath uut (
@@ -43,6 +43,7 @@ initial begin
     $dumpfile(`DUMPSTR(`VCD_OUTPUT));
     $dumpvars(0, dataPath_tb);
 
+    //Inicializo todo en 0
     PCSrc = 0;
     RegWrite = 0;
     immSrc = 2'd0;
@@ -52,6 +53,7 @@ initial begin
     ResultSrc = 2'd0;
     #1;
 
+    //Prueba 1
     PCSrc = 1;
     RegWrite = 1;
     immSrc = 2'd1;
@@ -61,7 +63,7 @@ initial begin
     ResultSrc = 2'd1;
     #1;
 
-
+    //Prueba 2
     PCSrc = 1;
     RegWrite = 1;
     immSrc = 2'd2;

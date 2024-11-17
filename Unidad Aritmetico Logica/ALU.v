@@ -9,7 +9,7 @@ module ALU(
 always @(*) begin
     case(ALUControl)
         3'b000: result = srcA + srcB;                       // Suma
-        3'b001: result = srcA - srcB;                       // Resta por complemento a 2
+        3'b001: result = srcA - srcB;                       // Resta 
         3'b010: result = srcA & srcB;                       // AND
         3'b011: result = srcA | srcB;                       // OR
         3'b101: result = (srcA < srcB) ? 32'b1 : 32'b0;     // Set Less Than (SLT)

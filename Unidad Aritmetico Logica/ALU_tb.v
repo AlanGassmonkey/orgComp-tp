@@ -4,15 +4,16 @@
 
 module ALU_tb();
 
-    reg [31:0] srcA_tb, srcB_tb;     // Entradas de 32 bits
-    reg [2:0] ALUControl_tb;         // Código de control de la ALU
-    wire [31:0] result_tb;           // Salida de 32 bits
-
+    reg signed [31:0] srcA_tb, srcB_tb;     // Entradas de 32 bits
+    reg [2:0] ALUControl_tb;                // Código de control de la ALU
+    wire [31:0] result_tb;                  // Salida de 32 bits
+    wire zero_tb;
     ALU UUT (
         .srcA(srcA_tb),
         .srcB(srcB_tb),
         .ALUControl(ALUControl_tb),
-        .result(result_tb)
+        .result(result_tb),
+        .zero(zero_tb)
     );
 
     initial begin
@@ -23,36 +24,50 @@ module ALU_tb();
         srcA_tb = 32'd15;
         srcB_tb = 32'd10;
         ALUControl_tb = 3'b000;
-        #10;
-        $display("Add: srcA = %d, srcB = %d, result = %d", srcA_tb, srcB_tb, result_tb);
+        #1;
+
+        // Prueba de suma con negativos
+        srcA_tb = -32'd15;
+        srcB_tb = 32'd10;
+        ALUControl_tb = 3'b000;
+        #1;
 
         // Prueba de resta
         srcA_tb = 32'd20;
         srcB_tb = 32'd5;
         ALUControl_tb = 3'b001;
-        #10;
-        $display("Subtract: srcA = %d, srcB = %d, result = %d", srcA_tb, srcB_tb, result_tb);
+        #1;
+
+        // Prueba de resta con negativos
+        srcA_tb = 32'd20;
+        srcB_tb = -32'd5;
+        ALUControl_tb = 3'b001;
+        #1;
 
         // Prueba de AND
         srcA_tb = 32'h0F0F0F0F;
         srcB_tb = 32'h00FF00FF;
         ALUControl_tb = 3'b010;
-        #10;
-        $display("AND: srcA = %h, srcB = %h, result = %h", srcA_tb, srcB_tb, result_tb);
-
+        #1;
+       
         // Prueba de OR
         srcA_tb = 32'h0F0F0F0F;
         srcB_tb = 32'h00FF00FF;
         ALUControl_tb = 3'b011;
-        #10;
-        $display("OR: srcA = %h, srcB = %h, result = %h", srcA_tb, srcB_tb, result_tb);
-
+        #1;
+       
         // Prueba de SLT (Set Less Than)
         srcA_tb = 32'd5;
         srcB_tb = 32'd10;
         ALUControl_tb = 3'b101;
-        #10;
-        $display("SLT: srcA = %d, srcB = %d, result = %d", srcA_tb, srcB_tb, result_tb);
+        #1;
+
+        // Prueba de SLT (Set Less Than) con negativos
+        srcA_tb = 32'd5;
+        srcB_tb = -32'd10;
+        ALUControl_tb = 3'b101;
+        #1;
+
 
         $display("End of simulation");
         $finish;

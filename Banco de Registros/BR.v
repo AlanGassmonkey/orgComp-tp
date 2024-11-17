@@ -1,4 +1,4 @@
-module  BR(
+module BR(
     input clk,
     input [4:0] a1,             // Direccion Lectura 1
     input [4:0] a2,             // Direccion Lectura 2
@@ -9,11 +9,12 @@ module  BR(
     output wire [31:0] rd2      // Salida del registro 2
 );
     reg [31:0] Banco_de_Registros [31:0];
-
+    integer i; 
     //Inicializo los registros en 0
-    initial begin 
-        for(1=0; i<32 ; i = i + 1 )
+    initial begin
+        for (i = 0; i < 32; i = i + 1) begin
             Banco_de_Registros[i] = 32'd0;
+        end
     end
 
     
