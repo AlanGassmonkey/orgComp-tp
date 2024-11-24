@@ -19,7 +19,7 @@ module mainDeco(
                 immSrc = 2'b11;     
                 ALUSrc = 1'b0;         //No utiliza el mux pre alu         
                 memWrite = 0;       
-                ResultSrc = 10;
+                ResultSrc = 2'b10;
                 branch = 0;
                 ALUOp = 2'bxx;  // No usa la alu
                 Jump = 1;
@@ -31,7 +31,7 @@ module mainDeco(
                 immSrc = 2'b00;
                 ALUSrc = 1;
                 memWrite = 0;
-                ResultSrc = 1;
+                ResultSrc = 2'b01;
                 branch = 0;
                 ALUOp = 2'b00;
                 Jump = 0;
@@ -42,7 +42,7 @@ module mainDeco(
                 immSrc = 2'b01;
                 ALUSrc = 1;
                 memWrite = 1;
-                ResultSrc = 1'b0; // No importa, ya que no se escribe en registro
+                ResultSrc = 2'b00; // No importa, ya que no se escribe en registro
                 branch = 0;
                 ALUOp = 2'b00;
                 Jump = 0;
@@ -53,7 +53,7 @@ module mainDeco(
                 immSrc = 2'b00; // No importa, ya que no se usa inmediato
                 ALUSrc = 0;
                 memWrite = 0;
-                ResultSrc = 0;
+                ResultSrc = 2'b00;
                 branch = 0;
                 ALUOp = 2'b10;
                 Jump = 0;
@@ -74,7 +74,7 @@ module mainDeco(
                 immSrc = 2'b10;
                 ALUSrc = 0;
                 memWrite = 0;
-                ResultSrc = 1'b0; // No importa, ya que no se escribe en registro
+                ResultSrc = 2'b00; // No importa, ya que no se escribe en registro
                 branch = 1;
                 ALUOp = 2'b01;
                 Jump = 0;

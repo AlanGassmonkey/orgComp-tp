@@ -16,7 +16,7 @@ always #0.5 clk = ~clk;
         $dumpfile(`DUMPSTR(`VCD_OUTPUT));
         $dumpvars(0, rv32i_tb);
 
-        #80
+        #100
         $display("End of simulation");
         $finish;
     end
