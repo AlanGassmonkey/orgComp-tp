@@ -4,7 +4,14 @@
 
 
 module rv32i (
-    input clk
+    input clk,
+    input reset,
+    input wire [31:0] instruccion,
+    input wire [31:0] ReadData,
+    output wire [31:0] rd2,
+    output wire [31:0] pc,
+    output wire [31:0] ALUResult,
+    output wire MemWrite
 );
 
 
@@ -15,10 +22,8 @@ wire [1:0] immSrc;
 wire ALUsrc;
 wire [2:0] ALUControl; 
 wire [1:0] ResultSrc;
-wire [31:0] instruccion;
 wire zero;
 wire branch;                  
-wire MemWrite;        
 
 dataPath u_datapath (
     .clk(clk),                              // Conexión del reloj
@@ -29,8 +34,13 @@ dataPath u_datapath (
     .ALUControl(ALUControl),                // Conexión del código de control de la ALU
     .MemWrite(MemWrite),                    // Conexión de la señal MemWrite
     .ResultSrc(ResultSrc),                  // Conexión de la señal ResultSrc  
-    .instruccion(instruccion),
-    .zero(zero)
+    .instruccion(instruccion),              // Salida instruccion de la memoria de instrucciones
+    .zero(zero),                            // Señal de zero desde la ALU
+    .reset(reset),
+    .ReadData(ReadData),                    // Dato para Lectura de la Memoria de datos
+    .rd2(rd2),                              // Datos de Salida del Banco de Registros
+    .pc(pc),                                // Salida Contador de programas
+    .ALUResult(ALUResult)                   // Salida de 32 bits de la ALU
 );
 UC unidad_control (
     .op(instruccion[6:0]),                  // Conexión del opcode
