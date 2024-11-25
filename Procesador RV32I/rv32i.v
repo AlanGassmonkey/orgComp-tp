@@ -6,12 +6,12 @@
 module rv32i (
     input clk,
     input reset,
-    input wire [31:0] instruccion,
-    input wire [31:0] ReadData,
-    output wire [31:0] rd2,
-    output wire [31:0] pc,
-    output wire [31:0] ALUResult,
-    output wire MemWrite
+    input wire [31:0] instruccion,  // Salida instruccion de la memoria de instrucciones
+    input wire [31:0] ReadData,     // Dato para Lectura de la Memoria de datos
+    output wire [31:0] rd2,         // Datos de Salida del Banco de Registros
+    output wire [31:0] pc,          // Salida Contador de programas
+    output wire [31:0] ALUResult,   // Salida de 32 bits de la ALU
+    output wire MemWrite            // Habilitación de escritura de la Memoria de datos
 );
 
 
